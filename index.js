@@ -194,12 +194,7 @@ notes.addEventListener("click", ()=>{
         body.removeChild(template);
     })
     
-    nav.on('touchstart click'), function(e) {
-        if(e.type == 'click')
-            return;
-        else if(e.type == 'touchstart')
-            dragAndDrop(nav, template, e);
-    }
+    nav.ontouchstart = (e)=>dragAndDrop(nav, template, e);
     nav.onmousedown = (e)=>dragAndDrop(nav, template, e);
 
     nav.ondragstart = function() {
@@ -208,7 +203,7 @@ notes.addEventListener("click", ()=>{
     
 })
 
-function dragAndDrop(base, element, event, movement){
+function dragAndDrop(base, element, event){
 
     document.body.append(element);
     
@@ -216,10 +211,10 @@ function dragAndDrop(base, element, event, movement){
         element.style.left = pageX - element.offsetWidth / 2 + 'px';
         element.style.top = pageY - element.offsetHeight / 2 + 'px';
     }
-        moveAt(event.pageX, event.pageY);
+    
+    moveAt(event.pageX, event.pageY);
     
     function onMouseMove(event) {
-        // console.log(event.pageX, event.pageY);
         moveAt(event.pageX, event.pageY);
     }
 
@@ -228,9 +223,8 @@ function dragAndDrop(base, element, event, movement){
         ;[...event.changedTouches].forEach(touch => {
             x = `${touch.pageX}`;
             y = `${touch.pageY}`;
-        })  
-            moveAt(x, y);
-        // console.log(x, y);
+        })
+        moveAt(x, y);
     }
     
     document.addEventListener('mousemove', onMouseMove);
@@ -238,7 +232,6 @@ function dragAndDrop(base, element, event, movement){
     base.ontouchend = function(){
         document.removeEventListener('touchmove', onTouchMove);
         base.ontouchend = null;
-        return;
     }
     base.onmouseup = function() {
         document.removeEventListener('mousemove', onMouseMove);
@@ -375,9 +368,6 @@ function move(e){
     if(cTool == "eraser")
         col = "black";
 
-    // fx = e.clientX - boardLeft;
-    // fy = e.clientY - boardTop;
-    // console.log(ix, iy, fx, fy);
     tool.moveTo(ix, iy);
     tool.lineTo(fx, fy);
     tool.strokeStyle = col;
