@@ -8,10 +8,8 @@
 ## 🟢 Glimpse of the web app : 
 
 
-<img src="https://raw.githubusercontent.com/VishalArora14/Digital-Board
-/master/.github/images/changeColour.png" width="800" height="400" />
+<img src="https://raw.githubusercontent.com/VishalArora14/Digital-Board/master/.github/images/changeColour.png" width="800" height="400" />
 
-<img src="https://raw.githubusercontent.com/VishalArora14/Digital-Board
-/master/.github/images/Added_download_upload.png"  width="800" height="400" />
+<img src="https://raw.githubusercontent.com/VishalArora14/Digital-Board/master/.github/images/Added_download_upload.png"  width="800" height="400" />
 
 ### Bookmark this application for instant use 😃
